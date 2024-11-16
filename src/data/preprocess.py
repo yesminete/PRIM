@@ -24,13 +24,12 @@ def load_xml(file_path):
     tree = ET.parse(file_path)
     return tree
 
-def extract_data_from_input(tree, element_name):
+def extract_data_from_input(tree):
     """
-    Extract specified elements from the XML tree.
+    Extract elements from the XML tree.
     
     Parameters:
     - tree (ElementTree): Parsed XML tree object.
-    - element_name (str): XML tag name to extract data from.
     
     Returns:
     - data (list of dict): List of dictionaries containing extracted element data.
@@ -110,14 +109,12 @@ def extract_data_from_input(tree, element_name):
                         data[f"table_corner{j+1}_y"][i] = table_corners.points[j].y if not table_corners.points[j].is_outside else None
     return data
 
-def extract_data_from_output(tree, element_name):
+def extract_data_from_output(tree):
     """
-    Extract specified elements from the XML tree in the output data.
+    Extract elements from the XML tree in the output data.
     
     Parameters:
-    - tree (ElementTree): Parsed XML tree object for output data.
-    - element_name (str): XML tag name to extract data from.
-    
+    - tree: Parsed XML tree object for output data.    
     Returns:
     - output_data (DataFrame): DataFrame containing extracted element data for output.
     """
@@ -125,10 +122,10 @@ def extract_data_from_output(tree, element_name):
     event_sequence = EventSequence(tree)
     data = []
     event_labels = list(EventSequence.ALL_EVENTS.keys())
-    for frame_id in range(int(tree.find('meta/task/start_frame').text),int(tree.find('meta/task/stop_frame').text) + 1): 
-        events_at_frame = event_sequence[frame_id]  
+    for frame in range(int(tree.find('meta/task/start_frame').text),int(tree.find('meta/task/stop_frame').text) + 1): 
+        events_at_frame = event_sequence[frame]  
         row = {
-            "frame_id": frame_id,
+            "frame": frame,
             **{event: int(event in events_at_frame) for event in event_labels} 
         }
         data.append(row)
@@ -174,6 +171,7 @@ def interpolate_data(df):
     return df_
 
 ### You didn't verify this  !!!!!!!!!!! ###
+### Also instead of interpolating we could just put 0 instead of nan ###
 
 def interpolate_data_with_flag(df):
     """
@@ -205,6 +203,14 @@ def interpolate_data_with_flag(df):
             df_[col] = y
 
     return df_
+
+def add_freq(tree,df):
+    """
+    Add the frequency of the video as metadata to dataframe
+
+    Parameters:
+    - df (DataFrame): to which we are going to add the frequency
+    """
 
         
 def save_data(df, file_path):
