@@ -176,32 +176,39 @@ def interpolate_data(df):
 def interpolate_data_with_flag(df):
     """
     Interpolate missing values in the DataFrame and add flag columns.
-    PS: This function modifies the original DataFrame.
-
     Parameters:
     - df (DataFrame): DataFrame with missing data.
-    
     Returns:
     - df_ (DataFrame): DataFrame with interpolated values and flag columns.
     """
     df_ = df.copy()
-    for col in df.columns:
-        if col == "frame":
-            continue
-
-        # Create a flag column to indicate real (1) or interpolated (0) values
-        flag_col = f"{col}_flag"
-        df_[flag_col] = np.where(df_[col].isna(), 0, 1)
-        
-        # Perform interpolation
+    
+    # Columns to exclude from flag generation and interpolation
+    exclude_cols = ["frame", "table_corner1_x", "table_corner1_y", 
+                    "table_corner2_x", "table_corner2_y", 
+                    "table_corner3_x", "table_corner3_y", 
+                    "table_corner4_x", "table_corner4_y"]
+    
+    # Generate flag columns for all relevant columns
+    flag_data = {
+        f"{col}_flag": np.where(df_[col].isna(), 0, 1)
+        for col in df_.columns if col not in exclude_cols
+    }
+    
+    # Add all flag columns to the DataFrame in one step
+    df_ = pd.concat([df_, pd.DataFrame(flag_data, index=df_.index)], axis=1)
+    
+    # Perform interpolation for relevant columns
+    for col in df_.columns:
+        if col in exclude_cols or col.endswith("_flag"):
+            continue  # Skip excluded columns and flag columns
         y = df_[col].values
         x = np.arange(len(y))
         mask = np.isnan(y)
-        
         if mask.any():
-            y[mask] = np.interp(x[mask], x[~mask], y[~mask])
+            y[mask] = 0  # Interpolate or set missing values to 0
             df_[col] = y
-
+    
     return df_
 
 def add_freq(tree,df):

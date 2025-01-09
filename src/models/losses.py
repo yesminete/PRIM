@@ -14,9 +14,9 @@ def loss(y_pred, y_true, alpha=(1.0, 1.0, 1.0,1.0,1.0)):
   y_true_role = torch.stack([y_true[:, :, 5], y_true[:, :, 6], y_true[:, :, 5] + y_true[:, :, 6]], dim=-1)
   y_true_impact = torch.cat([y_true[:, :, 7:], torch.sum(y_true[:, :, 7:], dim=-1, keepdim=True)], dim=-1)
 
-
+  mask_stroke = (y_true_stroke != -1) .squeeze(-1)
   bce_with_logits_loss = nn.BCEWithLogitsLoss()
-  loss_stroke = bce_with_logits_loss(y_pred_stroke, y_true_stroke)
+  loss_stroke = bce_with_logits_loss(y_pred_stroke[mask_stroke], y_true_stroke[mask_stroke]) if mask_stroke.sum()>0 else 0.0
 
 
   mask = (y_true_stroke == 1).squeeze(-1)

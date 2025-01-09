@@ -1,0 +1,59 @@
+2024-12-16 22:07:19,688 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Current SDK version is 0.19.1
+2024-12-16 22:07:19,688 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Configure stats pid to 12628
+2024-12-16 22:07:19,689 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from C:\Users\ASUS\.config\wandb\settings
+2024-12-16 22:07:19,689 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from c:\Users\ASUS\Desktop\PRIM\src\data\wandb\settings
+2024-12-16 22:07:19,689 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2024-12-16 22:07:19,690 INFO    MainThread:12628 [wandb_init.py:_log_setup():528] Logging user logs to c:\Users\ASUS\Desktop\PRIM\src\data\wandb\run-20241216_220719-iiyfm4a8\logs\debug.log
+2024-12-16 22:07:19,691 INFO    MainThread:12628 [wandb_init.py:_log_setup():529] Logging internal logs to c:\Users\ASUS\Desktop\PRIM\src\data\wandb\run-20241216_220719-iiyfm4a8\logs\debug-internal.log
+2024-12-16 22:07:19,692 INFO    MainThread:12628 [wandb_init.py:init():644] calling init triggers
+2024-12-16 22:07:19,692 INFO    MainThread:12628 [wandb_init.py:init():650] wandb.init called with sweep_config: {}
+config: {}
+2024-12-16 22:07:19,692 INFO    MainThread:12628 [wandb_init.py:init():675] wandb.init() called when a run is still active
+2024-12-16 22:07:19,692 INFO    MainThread:12628 [wandb_watch.py:_watch():71] Watching
+2024-12-16 22:07:28,680 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-16 22:07:28,680 INFO    MainThread:12628 [wandb_init.py:_pause_backend():439] pausing backend
+2024-12-16 22:07:38,917 INFO    MainThread:12628 [wandb_init.py:_resume_backend():444] resuming backend
+2024-12-16 22:07:38,926 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-16 22:07:38,926 INFO    MainThread:12628 [wandb_init.py:_pause_backend():439] pausing backend
+2024-12-16 22:08:08,452 INFO    MainThread:12628 [wandb_init.py:_resume_backend():444] resuming backend
+2024-12-16 22:08:08,459 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-16 22:08:08,459 INFO    MainThread:12628 [wandb_init.py:_pause_backend():439] pausing backend
+2024-12-16 22:08:09,970 INFO    MainThread:12628 [wandb_init.py:_resume_backend():444] resuming backend
+2024-12-16 22:08:09,976 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-16 22:08:09,976 INFO    MainThread:12628 [wandb_init.py:_pause_backend():439] pausing backend
+2024-12-16 22:08:16,142 INFO    MainThread:12628 [wandb_init.py:_resume_backend():444] resuming backend
+2024-12-16 22:08:16,146 INFO    MainThread:12628 [wandb_run.py:_finish():2100] finishing run yesmine-lajmi-tsp/PRIM/i8f26vyt
+2024-12-16 22:08:16,146 INFO    MainThread:12628 [jupyter.py:save_history():458] not saving jupyter history
+2024-12-16 22:08:16,147 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-16 22:08:16,147 INFO    MainThread:12628 [wandb_init.py:_jupyter_teardown():456] cleaning up jupyter logic
+2024-12-16 22:08:16,147 INFO    MainThread:12628 [wandb_run.py:_atexit_cleanup():2339] got exitcode: 0
+2024-12-16 22:08:16,148 INFO    MainThread:12628 [wandb_run.py:_restore():2321] restore
+2024-12-16 22:08:16,148 INFO    MainThread:12628 [wandb_run.py:_restore():2327] restore done
+2024-12-16 22:21:56,644 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Current SDK version is 0.19.1
+2024-12-16 22:21:56,644 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Configure stats pid to 12628
+2024-12-16 22:21:56,644 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from C:\Users\ASUS\.config\wandb\settings
+2024-12-16 22:21:56,645 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from c:\Users\ASUS\Desktop\PRIM\src\data\wandb\settings
+2024-12-16 22:21:56,645 INFO    MainThread:12628 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2024-12-16 22:21:56,645 INFO    MainThread:12628 [wandb_init.py:_log_setup():528] Logging user logs to c:\Users\ASUS\Desktop\PRIM\src\data\wandb\run-20241216_222156-ce1r7fhv\logs\debug.log
+2024-12-16 22:21:56,647 INFO    MainThread:12628 [wandb_init.py:_log_setup():529] Logging internal logs to c:\Users\ASUS\Desktop\PRIM\src\data\wandb\run-20241216_222156-ce1r7fhv\logs\debug-internal.log
+2024-12-16 22:21:56,648 INFO    MainThread:12628 [wandb_init.py:_jupyter_setup():474] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000028C69E86670>
+2024-12-16 22:21:56,649 INFO    MainThread:12628 [wandb_init.py:init():644] calling init triggers
+2024-12-16 22:21:56,649 INFO    MainThread:12628 [wandb_init.py:init():650] wandb.init called with sweep_config: {}
+config: {}
+2024-12-16 22:21:56,649 INFO    MainThread:12628 [wandb_init.py:init():680] starting backend
+2024-12-16 22:21:56,650 INFO    MainThread:12628 [wandb_init.py:init():684] sending inform_init request
+2024-12-16 22:21:56,661 INFO    MainThread:12628 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn, using: spawn
+2024-12-16 22:21:56,668 INFO    MainThread:12628 [wandb_init.py:init():697] backend started and connected
+2024-12-16 22:21:56,679 INFO    MainThread:12628 [wandb_run.py:_label_probe_notebook():1222] probe notebook
+2024-12-16 22:21:56,684 INFO    MainThread:12628 [wandb_init.py:init():790] updated telemetry
+2024-12-16 22:21:56,811 INFO    MainThread:12628 [wandb_init.py:init():822] communicating run to backend with 90.0 second timeout
+2024-12-16 22:21:57,560 INFO    MainThread:12628 [wandb_init.py:init():874] starting run threads in backend
+2024-12-16 22:21:57,568 WARNING MsgRouterThr:12628 [router.py:message_loop():75] message_loop has been closed
+2024-12-16 22:21:58,175 INFO    MainThread:12628 [wandb_run.py:_console_start():2374] atexit reg
+2024-12-16 22:21:58,175 INFO    MainThread:12628 [wandb_run.py:_redirect():2224] redirect: wrap_raw
+2024-12-16 22:21:58,175 INFO    MainThread:12628 [wandb_run.py:_redirect():2289] Wrapping output streams.
+2024-12-16 22:21:58,176 INFO    MainThread:12628 [wandb_run.py:_redirect():2314] Redirects installed.
+2024-12-16 22:21:58,177 INFO    MainThread:12628 [wandb_init.py:init():916] run started, returning control to user process
+2024-12-16 22:21:58,177 INFO    MainThread:12628 [wandb_watch.py:_watch():71] Watching
+2024-12-17 02:29:16,336 INFO    MainThread:12628 [jupyter.py:save_ipynb():386] not saving jupyter notebook
+2024-12-17 02:29:16,368 INFO    MainThread:12628 [wandb_init.py:_pause_backend():439] pausing backend
