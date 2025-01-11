@@ -1,6 +1,16 @@
+"""
+dataset.py
+
+Author: JORMANA
+Date: 2024-11-25
+
+"""
+
+
 import pandas as pd
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
+import numpy as np
 
 class TimeSeriesDataset(Dataset):
     def __init__(self, feature_files, target_files, chunk_length, overlap):
@@ -14,9 +24,7 @@ class TimeSeriesDataset(Dataset):
         assert len(feature_files) == len(target_files), "Feature files and target files must match in number."
         self.chunk_length = chunk_length
         self.overlap = overlap
-        # Pair feature and target files
         self.file_pairs = list(zip(feature_files, target_files))
-        # Process all file pairs to generate chunks
         self.chunks = self._process_all_file_pairs()
 
     def _process_all_file_pairs(self):
@@ -24,10 +32,8 @@ class TimeSeriesDataset(Dataset):
         for feature_file, target_file in self.file_pairs:
             feature_df = pd.read_csv(feature_file)
             target_df = pd.read_csv(target_file)
-            # Drop the first column if it's an index
             feature_df.drop(feature_df.columns[0], axis=1, inplace=True)
             target_df.drop(target_df.columns[0], axis=1, inplace=True)
-            # Create chunks and local row-to-chunks mapping
             chunks = self._create_chunks(feature_df, target_df)
             all_chunks.extend(chunks)
         return all_chunks
@@ -37,7 +43,7 @@ class TimeSeriesDataset(Dataset):
         Split data into overlapping chunks and track overlap contributions.
         """
         step = self.chunk_length - self.overlap
-        num_chunks = (len(feature_df) - self.overlap) // step + 1  
+        num_chunks = (len(feature_df) - self.overlap) // step + 1
         chunks = []
 
         for i in range(num_chunks):
@@ -47,7 +53,6 @@ class TimeSeriesDataset(Dataset):
             chunk_targets = target_df.iloc[start:end]
 
             if len(chunk_features) < self.chunk_length:
-                # Pad features and targets to the required length
                 padding_rows = self.chunk_length - len(chunk_features)
                 feature_padding = pd.DataFrame(
                     np.repeat([[0] * feature_df.shape[1]], padding_rows, axis=0),

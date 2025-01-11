@@ -1,3 +1,4 @@
-research/
-data/dataset/
-prim/
+dataset/
+src/data/__pycache__/
+protocole.txt
+.vscode/

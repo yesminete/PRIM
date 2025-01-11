@@ -1,11 +1,3 @@
-"""
-preprocess.py
-
-Author: JORMANA
-Date: 2024-10-30
-
-"""
-
 import xml.etree.ElementTree as ET
 import pandas as pd
 import numpy as np
@@ -104,7 +96,7 @@ def extract_data_from_input(tree):
             for i in range(obj.start_frame, obj.start_frame + len(obj.data)):
                 table_corners = obj.data[i - obj.start_frame]
                 if table_corners is not None:
-                    for j in range(4):  #
+                    for j in range(4):  
                         data[f"table_corner{j+1}_x"][i] = table_corners.points[j].x if not table_corners.points[j].is_outside else None
                         data[f"table_corner{j+1}_y"][i] = table_corners.points[j].y if not table_corners.points[j].is_outside else None
     return data
@@ -170,12 +162,10 @@ def interpolate_data(df):
     
     return df_
 
-### You didn't verify this  !!!!!!!!!!! ###
-### Also instead of interpolating we could just put 0 instead of nan ###
-
 def interpolate_data_with_flag(df):
     """
-    Interpolate missing values in the DataFrame and add flag columns.
+    Interpolate missing values in the DataFrame and add flag columns. The flag columns indicate whether the value was interpolated or not.
+    If the value was interpolated, the flag is set to 0; otherwise, it is set to 1.
     Parameters:
     - df (DataFrame): DataFrame with missing data.
     Returns:
@@ -183,41 +173,68 @@ def interpolate_data_with_flag(df):
     """
     df_ = df.copy()
     
-    # Columns to exclude from flag generation and interpolation
-    exclude_cols = ["frame", "table_corner1_x", "table_corner1_y", 
-                    "table_corner2_x", "table_corner2_y", 
-                    "table_corner3_x", "table_corner3_y", 
-                    "table_corner4_x", "table_corner4_y"]
+    exclude_cols = ["frame"]
     
-    # Generate flag columns for all relevant columns
     flag_data = {
         f"{col}_flag": np.where(df_[col].isna(), 0, 1)
         for col in df_.columns if col not in exclude_cols
     }
     
-    # Add all flag columns to the DataFrame in one step
     df_ = pd.concat([df_, pd.DataFrame(flag_data, index=df_.index)], axis=1)
     
-    # Perform interpolation for relevant columns
     for col in df_.columns:
         if col in exclude_cols or col.endswith("_flag"):
-            continue  # Skip excluded columns and flag columns
+            continue
         y = df_[col].values
-        x = np.arange(len(y))
         mask = np.isnan(y)
         if mask.any():
-            y[mask] = 0  # Interpolate or set missing values to 0
+            y[mask] = 0  
             df_[col] = y
     
     return df_
 
-def add_freq(tree,df):
+
+def normalize(df):
     """
-    Add the frequency of the video as metadata to dataframe
+    Normalize all numeric data in a DataFrame with respect to the global mean and standard deviation,
+    excluding specified columns and ignoring values where the flag is 0.
 
     Parameters:
-    - df (DataFrame): to which we are going to add the frequency
+    - df (DataFrame): DataFrame with data to normalize.
+    - exclude_cols (list): List of columns to exclude from normalization.
+
+    Returns:
+    - df_normalized (DataFrame): DataFrame with globally normalized data.
     """
+    df_normalized = df.copy()
+    exclude_cols = ["frame"]
+
+    cols_to_normalize = [
+        col for col in df.columns if col not in exclude_cols and not col.endswith("_flag")
+    ]
+    
+    valid_values = []
+    for col in cols_to_normalize:
+        flag_col = f"{col}_flag"
+        if flag_col in df.columns:
+            valid_values.extend(df[col][df[flag_col] == 1].values)
+
+    global_mean = np.mean(valid_values)
+    global_std = np.std(valid_values)
+
+    if global_std == 0:
+        global_std = 1.0
+
+    for col in cols_to_normalize:
+        flag_col = f"{col}_flag"
+        if flag_col in df.columns:
+            df_normalized[col] = np.where(
+                df[flag_col] == 1,  
+                (df[col] - global_mean) / global_std,
+                df[col]  
+            )
+    return df_normalized
+
 
         
 def save_data(df, file_path):
