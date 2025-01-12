@@ -74,10 +74,12 @@ def weighted_loss(y_pred, y_true, alpha=(1.0, 1.0, 1.0, 1.0, 1.0)):
     weight = torch.zeros_like(y_true_stroke)
     weight[y_true_stroke == 1] = 48.0 
     weight[y_true_stroke == 0] = 0.5
+    weight = weight[mask_stroke].squeeze(-1)
 
+  
 
     bce_with_logits_loss = nn.BCEWithLogitsLoss(weight=weight)
-    loss_stroke = bce_with_logits_loss(y_pred_stroke[mask_stroke], y_true_stroke[mask_stroke]) if mask_stroke.sum() > 0 else torch.tensor(0.0, device=y_pred_stroke.device)
+    loss_stroke = bce_with_logits_loss(y_pred_stroke[mask_stroke].squeeze(-1), y_true_stroke[mask_stroke].squeeze(-1)) if mask_stroke.sum() > 0 else torch.tensor(0.0, device=y_pred_stroke.device)
 
     mask = (y_true_stroke == 1).squeeze(-1)
 
