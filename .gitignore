@@ -1,4 +1,6 @@
 dataset/
+src/__pycache__/
+
 src/data/__pycache__/
 protocole.txt
 .vscode/
