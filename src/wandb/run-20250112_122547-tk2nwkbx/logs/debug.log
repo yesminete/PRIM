@@ -1,0 +1,63 @@
+2025-01-12 12:25:47,800 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_122547-tk2nwkbx\logs\debug.log
+2025-01-12 12:25:47,802 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_122547-tk2nwkbx\logs\debug-internal.log
+2025-01-12 12:25:47,802 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:25:47,804 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:25:47,804 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:25:47,804 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:26:26,402 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_122626-mu9x0zp9\logs\debug.log
+2025-01-12 12:26:26,412 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_122626-mu9x0zp9\logs\debug-internal.log
+2025-01-12 12:26:26,412 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:26:26,451 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:26:26,451 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:26:26,451 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:26:55,900 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_122655-76wj71ee\logs\debug.log
+2025-01-12 12:26:55,900 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_122655-76wj71ee\logs\debug-internal.log
+2025-01-12 12:26:55,900 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:26:55,910 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:26:55,910 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:26:57,007 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:39:51,594 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_123951-fvnhh61g\logs\debug.log
+2025-01-12 12:39:51,595 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_123951-fvnhh61g\logs\debug-internal.log
+2025-01-12 12:39:51,596 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:39:51,597 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:39:51,599 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:39:51,600 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:42:10,464 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_124210-53dyrxwr\logs\debug.log
+2025-01-12 12:42:10,465 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_124210-53dyrxwr\logs\debug-internal.log
+2025-01-12 12:42:10,466 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:42:10,468 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:42:10,469 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:42:10,470 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:43:02,576 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_124302-754vuf5q\logs\debug.log
+2025-01-12 12:43:02,582 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_124302-754vuf5q\logs\debug-internal.log
+2025-01-12 12:43:02,583 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:43:02,583 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:43:02,583 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:43:02,588 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:43:31,295 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_124331-uam6pta9\logs\debug.log
+2025-01-12 12:43:31,295 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_124331-uam6pta9\logs\debug-internal.log
+2025-01-12 12:43:31,295 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:43:31,301 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:43:31,301 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:43:31,301 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:43:44,491 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_124344-rou89dpi\logs\debug.log
+2025-01-12 12:43:44,492 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_124344-rou89dpi\logs\debug-internal.log
+2025-01-12 12:43:44,494 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:43:44,494 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:43:44,496 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:43:44,496 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_init.py:_log_setup():523] Logging user logs to c:\PRIM\src\wandb\run-20250112_124716-qvws2h3u\logs\debug.log
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_init.py:_log_setup():524] Logging internal logs to c:\PRIM\src\wandb\run-20250112_124716-qvws2h3u\logs\debug-internal.log
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_init.py:init():641] calling init triggers
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {}
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_init.py:init():669] wandb.init() called when a run is still active
+2025-01-12 12:47:16,297 INFO    MainThread:17440 [wandb_watch.py:_watch():71] Watching

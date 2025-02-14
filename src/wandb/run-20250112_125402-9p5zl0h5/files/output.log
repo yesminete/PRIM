@@ -1,0 +1,39 @@
+
+Epoch 1/100
+--------------------
+Training: 100%|██████████| 10/10 [00:03<00:00,  3.32it/s]
+Stroke Train Metrics - Precision: 0.4839, Recall: 0.4928, F1: 0.3135, Accuracy: 0.4855
+Player Train Metrics - Precision: 0.4114, Recall: 0.4678, F1: 0.4127, Accuracy: 0.4835
+Type Train Metrics - Precision: 0.3679, Recall: 0.5022, F1: 0.4004, Accuracy: 0.5753
+Role Train Metrics - Precision: 0.2465, Recall: 0.2541, F1: 0.1976, Accuracy: 0.2154
+Impact Train Metrics - Precision: 0.0995, Recall: 0.1903, F1: 0.1059, Accuracy: 0.2616
+Train Loss: 5.1457
+Validation: 100%|██████████| 72/72 [00:04<00:00, 16.06it/s]
+Validation Loss: 3.9562
+Stroke validation Metrics - Precision: 0.5059, Recall: 0.5009, F1: 0.0134, Accuracy: 0.0135
+Player validation Metrics - Precision: 0.2465, Recall: 0.5000, F1: 0.3302, Accuracy: 0.4931
+Type validation Metrics - Precision: 0.1774, Recall: 0.5000, F1: 0.2619, Accuracy: 0.3548
+Role validation Metrics - Precision: 0.4464, Recall: 0.5142, F1: 0.4056, Accuracy: 0.4424
+Impact validation Metrics - Precision: 0.3779, Recall: 0.3915, F1: 0.2102, Accuracy: 0.2673
+
+Epoch 2/100
+--------------------
+Training: 100%|██████████| 10/10 [00:03<00:00,  2.73it/s]
+Stroke Train Metrics - Precision: 0.4849, Recall: 0.4903, F1: 0.2311, Accuracy: 0.3453
+Player Train Metrics - Precision: 0.3563, Recall: 0.4980, F1: 0.3930, Accuracy: 0.5262
+Type Train Metrics - Precision: 0.4204, Recall: 0.5058, F1: 0.4161, Accuracy: 0.6002
+Role Train Metrics - Precision: 0.4506, Recall: 0.3712, F1: 0.3636, Accuracy: 0.4906
+Impact Train Metrics - Precision: 0.1292, Recall: 0.3442, F1: 0.1171, Accuracy: 0.1635
+Train Loss: 4.6435
+Validation: 100%|██████████| 72/72 [00:04<00:00, 17.71it/s]
+Validation Loss: 3.9211
+Stroke validation Metrics - Precision: 0.5002, Recall: 0.5027, F1: 0.4599, Accuracy: 0.8135
+Player validation Metrics - Precision: 0.4901, Recall: 0.4936, F1: 0.4465, Accuracy: 0.4977
+Type validation Metrics - Precision: 0.5111, Recall: 0.5013, F1: 0.2878, Accuracy: 0.3641
+Role validation Metrics - Precision: 0.3537, Recall: 0.3979, F1: 0.2551, Accuracy: 0.2949
+Impact validation Metrics - Precision: 0.2387, Recall: 0.2118, F1: 0.1313, Accuracy: 0.1659
+
+Epoch 3/100
+--------------------
+Training:  30%|███       | 3/10 [00:00<00:02,  3.06it/s]
+[34m[1mwandb[0m: [33mWARNING[0m Fatal error while uploading data. Some run data will not be synced, but it will still be written to disk. Use `wandb sync` at the end of the run to try uploading.

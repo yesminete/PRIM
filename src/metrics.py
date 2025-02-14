@@ -54,32 +54,43 @@ def aggregate_prediction_labels(label_predictions, true_labels, chunk_length, ov
     return aggregated_predictions, aggregated_labels
 
 
-def compute_metrics(y_true, y_pred):
+def compute_metrics(y_true, y_pred, task=None, tolerance=2):
     """
-    Compute metrics for classification.
+    Compute metrics for classification with an optional tolerance for stroke detection.
 
     Args:
-        y_true: Ground truth labels (class indices as a numpy array or tensor).
-        y_pred: Predicted labels (class indices as a list, numpy array, or tensor).
+        y_true: Ground truth labels (NumPy array or tensor).
+        y_pred: Predicted labels (list, NumPy array, or tensor).
+        task: If "stroke", applies tolerance to predictions.
+        tolerance: Margin of tolerance for stroke predictions.
 
     Returns:
         precision, recall, f1, accuracy: Computed metrics.
     """
-    if(len(y_pred)==0):
-      return (0,0,0,0)
-    # Convert y_pred to a NumPy array if it's a list
+    if len(y_pred) == 0:
+        return 0, 0, 0, 0
+
+    # Convert to NumPy arrays if necessary
     if isinstance(y_pred, list):
-        y_pred = np.concatenate(y_pred, axis=0)
-
-    # Convert y_true to a NumPy array if it's not already
+        y_pred = np.array(y_pred)
     if isinstance(y_true, list):
-        y_true = np.concatenate(y_true, axis=0)
-
-    # Ensure inputs are NumPy arrays for compatibility with scikit-learn metrics
+        y_true = np.array(y_true)
     if isinstance(y_true, torch.Tensor):
         y_true = y_true.numpy()
     if isinstance(y_pred, torch.Tensor):
         y_pred = y_pred.numpy()
+
+    if task == "stroke":
+        y_pred_adjusted = np.zeros_like(y_pred)
+        for i in range(len(y_true)):
+            if y_true[i] == 1:
+                # Define the tolerance window
+                start = max(0, i - tolerance)
+                end = min(len(y_pred), i + tolerance + 1)
+                # Check if there is exactly one predicted event in this window
+                if np.sum(y_pred[start:end]) == 1:
+                    y_pred_adjusted[i] = 1
+        y_pred = y_pred_adjusted
 
     # Compute metrics
     precision = precision_score(y_true, y_pred, average='macro', zero_division=0)
@@ -88,3 +99,49 @@ def compute_metrics(y_true, y_pred):
     accuracy = accuracy_score(y_true, y_pred)
 
     return precision, recall, f1, accuracy
+
+def select_highest_score_stroke(batch_scores, score_threshold=0.5):
+    """
+    Refine stroke predictions for each element in the batch by selecting 
+    only the stroke with the highest score in each group of consecutive frames.
+
+    Args:
+        batch_scores (np.ndarray): Predicted stroke scores (batch_size x sequence_length).
+        score_threshold (float): Minimum score to consider a frame as a stroke candidate.
+
+    Returns:
+        np.ndarray: Array with the refined stroke predictions (binary values),
+                    same shape as `batch_scores`.
+    """
+    refined_batch_predictions = np.zeros_like(batch_scores, dtype=int)
+    
+    for batch_idx in range(batch_scores.shape[0]):  
+        scores = batch_scores[batch_idx]
+        above_threshold = scores > score_threshold
+        refined_predictions = np.zeros_like(scores, dtype=int)
+        indices = np.where(above_threshold)[0]
+        print(indices)
+        if len(indices) == 0:  
+            refined_batch_predictions[batch_idx] = refined_predictions
+            continue
+
+        current_group = [indices[0]]
+        for i in range(1, len(indices)):
+            if indices[i] == indices[i - 1] + 1:  
+                current_group.append(indices[i])
+            else:
+                best_frame = current_group[np.argmax(scores[current_group])]
+                refined_predictions[best_frame] = 1
+                current_group = [indices[i]]
+        
+        if current_group:
+            best_frame = current_group[np.argmax(scores[current_group])]
+            refined_predictions[best_frame] = 1
+        
+        refined_batch_predictions[batch_idx] = refined_predictions
+
+    return refined_batch_predictions
+
+
+
+

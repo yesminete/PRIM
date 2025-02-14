@@ -171,9 +171,9 @@ def interpolate_data_with_flag(df):
     Returns:
     - df_ (DataFrame): DataFrame with interpolated values and flag columns.
     """
-    df_ = df.copy()
-    
-    exclude_cols = ["frame"]
+    df_ = df.copy()					
+    exclude_cols = ["frame", "table_corner1_x", "table_corner1_y", "table_corner2_x", "table_corner2_y", 
+                    "table_corner3_x", "table_corner3_y", "table_corner4_x", "table_corner4_y"]
     
     flag_data = {
         f"{col}_flag": np.where(df_[col].isna(), 0, 1)
@@ -196,43 +196,52 @@ def interpolate_data_with_flag(df):
 
 def normalize(df):
     """
-    Normalize all numeric data in a DataFrame with respect to the global mean and standard deviation,
-    excluding specified columns and ignoring values where the flag is 0.
+    Normalize all numeric columns in a DataFrame with respect to a global mean and standard deviation,
+    excluding specified columns and handling flags.
 
     Parameters:
-    - df (DataFrame): DataFrame with data to normalize.
-    - exclude_cols (list): List of columns to exclude from normalization.
+        df (pd.DataFrame): Input DataFrame containing data to normalize.
 
     Returns:
-    - df_normalized (DataFrame): DataFrame with globally normalized data.
+        pd.DataFrame: Normalized DataFrame.
     """
     df_normalized = df.copy()
-    exclude_cols = ["frame"]
+    exclude_cols = ["frame"]  # Columns to exclude from normalization
 
+    # Identify columns to normalize
     cols_to_normalize = [
         col for col in df.columns if col not in exclude_cols and not col.endswith("_flag")
     ]
     
+    # Collect all valid values across columns
     valid_values = []
     for col in cols_to_normalize:
         flag_col = f"{col}_flag"
         if flag_col in df.columns:
-            valid_values.extend(df[col][df[flag_col] == 1].values)
-
+            valid_values.extend(df[col][df[flag_col] == 1].dropna().values)
+        else:
+            valid_values.extend(df[col].dropna().values)
+    
+    # Compute global mean and standard deviation
     global_mean = np.mean(valid_values)
     global_std = np.std(valid_values)
-
+    
+    # Avoid division by zero
     if global_std == 0:
         global_std = 1.0
 
+    # Normalize each column using the global mean and std
     for col in cols_to_normalize:
         flag_col = f"{col}_flag"
         if flag_col in df.columns:
             df_normalized[col] = np.where(
                 df[flag_col] == 1,  
-                (df[col] - global_mean) / global_std,
-                df[col]  
+                (df[col] - global_mean) / global_std,  # Normalize valid values
+                df[col]  # Leave unflagged values unchanged
             )
+        else:
+            df_normalized[col] = (df[col] - global_mean) / global_std
+    
     return df_normalized
 
 

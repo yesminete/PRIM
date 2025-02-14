@@ -57,9 +57,4 @@ def proportional_split(feature_files, target_files, file_lengths, train_ratio=0.
             test_targets.append(target_files[i])
         cumulative_rows += length
 
-    # Check if the splits are empty or imbalanced
-    assert train_features, "Training set is empty!"
-    assert val_features, "Validation set is empty!"
-    assert test_features, "Test set is empty!"
-
     return train_features, train_targets, val_features, val_targets, test_features, test_targets

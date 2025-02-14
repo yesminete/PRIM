@@ -1,0 +1,16 @@
+{"time":"2025-01-12T12:54:03.5557791+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"c:\\PRIM\\src\\wandb\\run-20250112_125402-9p5zl0h5\\logs\\debug-core.log"}
+{"time":"2025-01-12T12:54:04.5024669+01:00","level":"INFO","msg":"created new stream","id":"9p5zl0h5"}
+{"time":"2025-01-12T12:54:04.5034577+01:00","level":"INFO","msg":"stream: started","id":"9p5zl0h5"}
+{"time":"2025-01-12T12:54:04.5044108+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"9p5zl0h5"}
+{"time":"2025-01-12T12:54:04.5044737+01:00","level":"INFO","msg":"sender: started","stream_id":"9p5zl0h5"}
+{"time":"2025-01-12T12:54:04.5044737+01:00","level":"INFO","msg":"handler: started","stream_id":"9p5zl0h5"}
+{"time":"2025-01-12T12:54:04.916235+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-12T12:54:23.8820982+01:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-01-12T13:01:50.9389601+01:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/yesmine-lajmi-tsp/PRIM/9p5zl0h5/file_stream"}
+{"time":"2025-01-12T13:01:50.9396634+01:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/yesmine-lajmi-tsp/PRIM/9p5zl0h5/file_stream: {\"error\":\"run PRIM/9p5zl0h5 not found while streaming file\"}"}
+{"time":"2025-01-12T14:27:39.4402659+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-12T14:27:41.5938517+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-12T14:27:46.5015372+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-12T14:27:56.1250046+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-12T14:28:13.5547213+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-12T14:28:46.9058847+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}

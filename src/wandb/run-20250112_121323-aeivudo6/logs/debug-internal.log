@@ -1,0 +1,10 @@
+{"time":"2025-01-12T12:13:23.2906592+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"c:\\PRIM\\src\\wandb\\run-20250112_121323-aeivudo6\\logs\\debug-core.log"}
+{"time":"2025-01-12T12:13:25.430158+01:00","level":"INFO","msg":"created new stream","id":"aeivudo6"}
+{"time":"2025-01-12T12:13:25.4335954+01:00","level":"INFO","msg":"stream: started","id":"aeivudo6"}
+{"time":"2025-01-12T12:13:25.4335954+01:00","level":"INFO","msg":"handler: started","stream_id":"aeivudo6"}
+{"time":"2025-01-12T12:13:25.4335954+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"aeivudo6"}
+{"time":"2025-01-12T12:13:25.4335954+01:00","level":"INFO","msg":"sender: started","stream_id":"aeivudo6"}
+{"time":"2025-01-12T12:13:25.7014942+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-12T12:48:55.7174788+01:00","level":"ERROR","msg":"monitor: cpu: error sampling metrics: couldn't find pid: 17440"}
+{"time":"2025-01-12T13:01:56.3391302+01:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/yesmine-lajmi-tsp/PRIM/aeivudo6/file_stream"}
+{"time":"2025-01-12T13:01:56.3391302+01:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/yesmine-lajmi-tsp/PRIM/aeivudo6/file_stream: {\"error\":\"run PRIM/aeivudo6 not found while streaming file\"}"}
